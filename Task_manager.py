@@ -15,3 +15,12 @@ def show_menu():
 
 # while True:
 show_menu()
+
+# user selection to perform task
+choice = int(input("\nEnter Task Number : "))
+if choice == 1:
+    view_all_task()
+elif choice == 2:
+    add_task()
+else:
+    print("Invalid Task Number. TRY AGAIN!")
