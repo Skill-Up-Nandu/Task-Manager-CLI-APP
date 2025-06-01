@@ -29,6 +29,18 @@ def view_all_task():
         status = "✅" if task["done"] else "❌"
         print(f"{idx}. {task['title']}  [{status}].")
 
+# funtion to mark task as done
+def mark_done():
+    view_all_task()
+    index = int(input("\nEnter Task Number To Mark As Done : "))
+    for idx , task in enumerate(tasks):
+        if idx == index-1:
+            task['done'] = True
+    print(f"Marked '{task['title'] }' As Done.")
+
+
+
+
 while True:
     show_menu()
 
@@ -38,5 +50,7 @@ while True:
         view_all_task()
     elif choice == 2:
         add_task()
+    elif choice == 3:
+        mark_done()
     else:
         print("Invalid Task Number. TRY AGAIN!")
