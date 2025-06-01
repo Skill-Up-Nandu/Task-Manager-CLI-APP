@@ -19,7 +19,6 @@ def add_task():
         print("No Task Exists. Enter The First Task")
     title = input("\nWrite Your Task Here : ")
     tasks.append({'title' : title , 'done' : False})
-    print(tasks)
 
 # while True:
 show_menu()
