@@ -13,6 +13,13 @@ def show_menu():
     print("5. Delete Task")
     print("6. Exit")
 
+#  Helper Function to check weather list is empty or not
+def is_tasks_empty():
+    if not tasks:
+        print("\nList Is Empty Now.")
+        return True
+    return False
+
 # function to add new task
 def add_task():
     if not tasks:
@@ -31,6 +38,8 @@ def view_all_task():
 
 # function to mark task as done
 def mark_done():
+    if is_tasks_empty():
+        return
     view_all_task()
     index = int(input("\nEnter Task Number To Mark As Done : "))
     for idx , task in enumerate(tasks):
@@ -40,6 +49,8 @@ def mark_done():
 
 # function to modify the status
 def modify_status():
+    if is_tasks_empty():
+        return
     view_all_task()
     update = int(input("\nEnter Task Number To Update Status : "))
     if tasks[update-1]['done']:
@@ -51,6 +62,8 @@ def modify_status():
 
 # function to delete task 
 def delete_task():
+    if is_tasks_empty():
+        return
     view_all_task()
     delete = int(input("\nEnter Task Number To Remove : "))
     if 1 <= delete <= len(tasks):
