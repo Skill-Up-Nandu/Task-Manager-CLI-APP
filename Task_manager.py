@@ -38,6 +38,18 @@ def mark_done():
             task['done'] = True
     print(f"Marked '{task['title'] }' As Done.")
 
+# function to delete task 
+def delete_task():
+    view_all_task()
+    delete = int(input("\nEnter Task Number To Remove : "))
+    if 1 <= delete <= len(tasks):
+        # We use another variable (removed_task) to store the item returned by tasks.pop(delete-1) so that we can access its details (like the task's title) after removing it from the list.
+        removed_task = tasks.pop(delete-1)  
+        # removed_task is not the part of list anymore that's why we access it by using another variable.
+        print(f"\nTask '{removed_task['title']}' Removed Successfully !")
+    else:
+        print("\nInvalid Task Number.")
+
 
 
 
@@ -52,5 +64,7 @@ while True:
         add_task()
     elif choice == 3:
         mark_done()
+    elif choice == 5:
+        delete_task()
     else:
         print("Invalid Task Number. TRY AGAIN!")
