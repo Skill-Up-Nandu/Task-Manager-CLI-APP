@@ -1,6 +1,6 @@
 # Task Manager "to-do-list" CLI-App
 
-# list to store all tasks in dictionery
+# list to store all tasks in dictionary
 tasks = []
 
 # a function who show all menu
@@ -29,7 +29,7 @@ def view_all_task():
         status = "✅" if task["done"] else "❌"
         print(f"{idx}. {task['title']}  [{status}].")
 
-# funtion to mark task as done
+# function to mark task as done
 def mark_done():
     view_all_task()
     index = int(input("\nEnter Task Number To Mark As Done : "))
@@ -79,6 +79,6 @@ while True:
     elif choice == 5:
         delete_task()
     elif choice == 6:
-        break
+        break   # to exit from the loop
     else:
         print("Invalid Task Number. TRY AGAIN!")
