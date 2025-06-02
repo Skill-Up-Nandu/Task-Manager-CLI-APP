@@ -67,7 +67,12 @@ while True:
     show_menu()
 
 # user selection to perform task
-    choice = int(input("\nEnter Task Number : "))
+# check input valid
+    try:
+        choice = int(input("\nEnter Task Number : "))
+    except ValueError:
+        print("\nInput Is Invalid. Try Again.")
+        continue
     if choice == 1:
         view_all_task()
     elif choice == 2:
