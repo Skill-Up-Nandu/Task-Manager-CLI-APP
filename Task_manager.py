@@ -9,7 +9,7 @@ def show_menu():
     print("1. View All Tasks")
     print("2. Add Task")
     print("3. Mark As Done")
-    print("4. Modify Task")
+    print("4. Modify Status")
     print("5. Delete Task")
     print("6. Exit")
 
@@ -22,7 +22,7 @@ def add_task():
 
 # function to view all task
 def view_all_task():
-    print("\n=================== TASK LIST ====================\n")
+    print("\n=================== TASK LIST =====================\n")
     if not tasks:
         print("LIST IS EMPTY NOW !.")
     for idx , task in enumerate(tasks , start = 1):
@@ -38,6 +38,17 @@ def mark_done():
             task['done'] = True
     print(f"Marked '{task['title'] }' As Done.")
 
+# function to modify the status
+def modify_status():
+    view_all_task()
+    update = int(input("\nEnter Task Number To Update Status : "))
+    if tasks[update-1]['done']:
+        tasks[update-1]['done'] = False
+        print(f"\n Task '{tasks[update-1]['title']}' Status Updated !")
+    else:
+        print(f"\nTask '{tasks[update-1]['title']}' Not Done Yet.")
+
+
 # function to delete task 
 def delete_task():
     view_all_task()
@@ -51,8 +62,7 @@ def delete_task():
         print("\nInvalid Task Number.")
 
 
-
-
+# main loop 
 while True:
     show_menu()
 
@@ -64,7 +74,11 @@ while True:
         add_task()
     elif choice == 3:
         mark_done()
+    elif choice == 4:
+        modify_status()
     elif choice == 5:
         delete_task()
+    elif choice == 6:
+        break
     else:
         print("Invalid Task Number. TRY AGAIN!")
